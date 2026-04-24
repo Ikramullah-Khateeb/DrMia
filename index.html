@@ -52,6 +52,7 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
+        <p class="hero-eyebrow">Dr Mia Al Shamsi Integrated Care Center</p>
         <h1>
           Premium Care From People That Care</span>
         </h1>
@@ -1002,9 +1003,23 @@
     const hamburger = document.getElementById("hamburger");
     const navLinks = document.querySelector(".nav-links");
 
-    hamburger.addEventListener("click", () => {
+    /* Toggle menu */
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent document click from firing
+      hamburger.classList.toggle("active");
       navLinks.classList.toggle("active");
-    })
+    });
+
+    /* Close when clicking outside */
+    document.addEventListener("click", (e) => {
+      const isClickInsideNav = navLinks.contains(e.target);
+      const isClickHamburger = hamburger.contains(e.target);
+
+      if (!isClickInsideNav && !isClickHamburger) {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active"); // ✅ important
+      }
+    });
   </script>
 </body>
 

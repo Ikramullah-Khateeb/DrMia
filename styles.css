@@ -79,6 +79,23 @@ body {
   border-radius: 2px;
 }
 
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* smooth animation */
+.hamburger span {
+  transition: all 0.3s ease;
+}
+
 /* Logo */
 .logo {
   display: flex;
@@ -159,6 +176,28 @@ body {
   position: relative;
   text-align: center;
   padding: 20px;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+
+  margin-bottom: 14px;
+  position: relative;
+}
+
+/* optional elegant line beside text */
+.hero-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.6);
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 .hero h1 {
@@ -2016,7 +2055,7 @@ body {
   }
 
   .about-section {
-    margin: 0 16px 40px;
+    margin: 120px 20px 60px;
   }
 
   .about-inner {
@@ -2048,6 +2087,9 @@ body {
     font-size: 15.5px;
   }
 
+  .services-section {
+    margin: 120px 20px 60px;
+  }
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2055,6 +2097,10 @@ body {
 
   .services-heading {
     font-size: 40px;
+  }
+
+  .why-section {
+    margin: 120px 20px 60px;
   }
 
   .why-inner {
@@ -2069,6 +2115,10 @@ body {
 
   .why-body {
     max-width: 100%;
+  }
+
+  .appt-section {
+    margin: 120px 20px 60px;
   }
 
   .appt-inner {
@@ -2087,12 +2137,20 @@ body {
     font-size: 38px;
   }
 
+  .testi-section {
+    margin: 120px 20px 60px;
+  }
+
   .testi-card {
     flex: 0 0 calc(50% - 12px);
   }
 
   .testi-heading {
     font-size: 40px;
+  }
+
+  .site-footer {
+    margin: 120px 20px 20px;
   }
 
   .footer-main {
@@ -2130,21 +2188,27 @@ body {
   .nav-links {
     position: absolute;
     top: 80px;
-    right: 20px;
+    left: 0;
+    width: 100%;
+
     background: white;
     flex-direction: column;
-    gap: 16px;
-    padding: 20px;
-    border-radius: 12px;
+    gap: 20px;
+    padding: 30px 20px;
+
+    border-radius: 0 0 20px 20px;
+    /* only bottom rounded */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
     display: none;
-    /* hidden by default */
+    z-index: 999;
   }
 
   .nav-links.active {
     display: flex;
   }
+
+
 
   .nav-actions {
     gap: 6px;
@@ -2154,7 +2218,7 @@ body {
     padding: 8px 16px;
     font-size: 14px;
     display: none;
-    color:white !important;
+    color: white !important;
   }
 
   .mobile-contact {
@@ -2184,7 +2248,7 @@ body {
   }
 
   .hero h1 {
-    font-size: 34px;
+    font-size: 44px;
     line-height: 1.2;
   }
 
@@ -2205,7 +2269,9 @@ body {
     font-size: 14px;
   }
 
-
+  .why-section {
+    margin: 100px 10px 40px;
+  }
 
   .stats-section {
     margin: 0 10px 30px;
@@ -2233,7 +2299,7 @@ body {
   }
 
   .about-section {
-    margin: 0 10px 40px;
+    margin: 100px 10px 40px;
   }
 
   .about-inner {
@@ -2259,7 +2325,7 @@ body {
   }
 
   .services-section {
-    margin: 0 10px 40px;
+    margin: 100px 10px 40px;
   }
 
   .services-grid {
@@ -2298,8 +2364,13 @@ body {
     font-size: 16px;
   }
 
+  .services-grid {
+    column-gap: 23px;
+    row-gap: 50px;
+  }
+
   .appt-section {
-    margin: 0 10px 40px;
+    margin: 100px 10px 40px;
   }
 
   .appt-inner {
@@ -2324,7 +2395,7 @@ body {
   }
 
   .testi-section {
-    margin: 0 10px 40px;
+    margin: 100px 10px 40px;
   }
 
   .testi-card {
@@ -2344,7 +2415,7 @@ body {
   }
 
   .site-footer {
-    margin: 0 10px 14px;
+    margin: 100px 10px 14px;
     border-radius: 18px;
   }
 
@@ -2397,11 +2468,6 @@ body {
 
   .stat-label {
     font-size: 11px;
-  }
-
-
-  .about-section {
-    margin: 0 8px 32px;
   }
 
   .about-inner {
@@ -2486,7 +2552,11 @@ body {
   }
 
   .why-card.wide {
-    grid-column: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    gap: 14px;
+    transition: background 0.28s ease, transform 0.28s ease, border-color 0.28s ease;
+    cursor: default;
   }
 
   .appt-left {
@@ -2511,10 +2581,6 @@ body {
 
   .testi-card {
     padding: 28px 24px 26px;
-  }
-
-  .site-footer {
-    margin: 0 8px 10px;
   }
 
   .footer-main {
