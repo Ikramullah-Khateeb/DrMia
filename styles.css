@@ -32,6 +32,58 @@ body {
   background: #f5f5f5;
 }
 
+/* animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-card-on-scroll {
+  opacity: 0;
+  transform: translateY(50px) scale(0.5);
+  transition: opacity 1s ease-out, transform 1.2s ease-out;
+}
+.animate-image {
+  opacity: 0;
+  transform: translateY(50px) scale(0.91);
+  filter: saturate(0) contrast(2.8) brightness(0.1) blur(10px);
+  transition: 
+    opacity 1s ease-out,
+    transform 1s ease-out,
+    filter 1.2s ease-out;
+}
+
+
+/* When in view */
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-card-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.animate-image.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: none
+}
+
+.animate-left {
+  transform: translateX(-50px);
+}
+.animate-right {
+  transform: translateX(50px);
+}
+/* for delay */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+
+
+
+
 
 .container {
   max-width: 1200px;
