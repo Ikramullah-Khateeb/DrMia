@@ -41,7 +41,14 @@ body {
 
 /* navbar css starts here */
 .navbar {
+
   padding: 1.25rem;
+  position: relative;
+  z-index: 1000;
+}
+
+.mobile-contact {
+  display: none;
 }
 
 .nav-container {
@@ -49,10 +56,27 @@ body {
   background: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border-radius: 50px;
-  padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 70px;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Hamburger hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
 }
 
 /* Logo */
@@ -62,10 +86,10 @@ body {
 }
 
 .logo img {
-  height: 40px;     /* controls size */
-  width: auto;      /* keeps aspect ratio */
+  height: 75px;
+  /* try 60–65px */
+  width: auto;
   object-fit: contain;
-  display: block;   /* removes extra spacing */
 }
 
 .logo span {
@@ -78,6 +102,7 @@ body {
   list-style: none;
   display: flex;
   gap: 48px;
+  z-index: 1001;
 }
 
 .nav-links a {
@@ -539,7 +564,8 @@ body {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 60px;
 }
 
 .service-card {
@@ -1733,18 +1759,22 @@ body {
 .footer-logo-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .footer-logo-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #1e6fff, #00a8ff);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.footer-logo-icon img {
+  height: 90px;
+  /* control size here */
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-brand-name {
@@ -2093,9 +2123,53 @@ body {
     /* hide menu for now */
   }
 
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    display: none;
+    /* hidden by default */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
   .contact-btn {
     padding: 8px 16px;
     font-size: 14px;
+    display: none;
+    color:white !important;
+  }
+
+  .mobile-contact {
+    display: block;
+  }
+
+  /* Hide desktop button */
+  .nav-container>.contact-btn {
+    display: none;
+  }
+
+  .nav-links.active .contact-btn {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
   }
 
   .logo span {
